@@ -402,16 +402,16 @@
                                 </button>
                             </div>
 
-                            <!--
-              Dropdown menu, show/hide based on menu state.
+                                <!--
+                                Dropdown menu, show/hide based on menu state.
 
-              Entering: "transition ease-out duration-100"
-                From: "transform opacity-0 scale-95"
-                To: "transform opacity-100 scale-100"
-              Leaving: "transition ease-in duration-75"
-                From: "transform opacity-100 scale-100"
-                To: "transform opacity-0 scale-95"
-            -->
+                                Entering: "transition ease-out duration-100"
+                                    From: "transform opacity-0 scale-95"
+                                    To: "transform opacity-100 scale-100"
+                                Leaving: "transition ease-in duration-75"
+                                    From: "transform opacity-100 scale-100"
+                                    To: "transform opacity-0 scale-95"
+                                -->
                             <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right divide-y divide-gray-200 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                                 role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                                 tabindex="-1">
@@ -557,7 +557,25 @@
                         </thead>
                         <tbody>
                             {% for post in data %}
-                                <tr class="bg-white border-b bg-white ">
+                           <div id="popup-modal" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <div class="relative bg-white rounded-lg">
+                                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-hide="popup-modal">
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                    <div class="p-6 text-center">
+                                        <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <h3 class="mb-5 text-lg font-normal text-gray-500">Are you sure you want to post now?</h3>
+                                        <button data-modal-hide="popup-modal" type="button" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                                            Yes, I'm sure
+                                        </button>
+                                        <button data-modal-hide="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No, cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <tr class="bg-white border-b bg-white ">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-black">
                                     {{post.prompt}}
                                 </th>
@@ -574,7 +592,7 @@
                                     <button type="submit" value="create_post" style="background-color: #d9f5fd; border: 1px solid #2576c1; color: #2576c1;" class="text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-1 focus:outline-none">Details</button>
                                 </td>
                                 <td class="px-6 py-4 ">
-                                    <button type="submit" value="create_post" style="background-color: #d9f5fd; border: 1px solid #2576c1; color: #2576c1;" class="text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-1  focus:outline-none">Force Post</button>
+                                    <button id="force-post" type="submit" value="create_post" style="background-color: #d9f5fd; border: 1px solid #2576c1; color: #2576c1;" class="text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-1  focus:outline-none">Force Post</button>
                                 </td>
                             </tr>
                             {% endfor %}
@@ -610,6 +628,28 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+        }
+
+        // Get the modal
+        var modal2 = document.getElementById("popup-modal");
+
+        // Get the button that opens the modal
+        var btn2 = document.getElementById("force-post");
+
+        // Get the <span> element that closes the modal
+        var span2 = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn2.onclick = function () {
+            modal2.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span2.onclick = function () {
+            modal2.style.display = "none";
         }
     </script>
 </body>
