@@ -15,7 +15,7 @@ import os
 import environ
 
 env = environ.Env(
-    DEBUG=(bool, False)
+    DEBUG=(bool, True)
 )
 # read .env file
 environ.Env.read_env()
