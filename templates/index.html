@@ -591,73 +591,25 @@
                             {% for post in data %}
                                 <tr class="bg-white border-b bg-white ">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-black">
-                                    {{post.data}}
+                                    {{post.prompt}}
                                 </th>
                                 <td class="px-6 py-4">
                                     {{post.datetime}}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{post.status}}
+                                    <span style="background-color: #fdf0cb; color: #935301" class="inline-flex items-center justify-center text-black text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-500">
+                                        <span style="background-color: #935301" class="w-2 h-2 mr-1 rounded-full"></span>
+                                        {{post.status}}
+                                    </span>
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{post.details}}
+                                    <button type="submit" value="create_post" style="background-color: #d9f5fd; border: 1px solid #2576c1; color: #2576c1;" class="text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-1 focus:outline-none">Details</button>
                                 </td>
-                                <td class="px-6 py-4 text-right">
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Force Post</a>
+                                <td class="px-6 py-4 ">
+                                    <button type="submit" value="create_post" style="background-color: #d9f5fd; border: 1px solid #2576c1; color: #2576c1;" class="text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-1  focus:outline-none">Force Post</button>
                                 </td>
                             </tr>
                             {% endfor %}
-                            <tr class="bg-white border-b bg-white ">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-black">
-                                    Apple MacBook Pro 17"
-                                </th>
-                                <td class="px-6 py-4">
-                                    Sliver
-                                </td>
-                                <td class="px-6 py-4">
-                                    Laptop
-                                </td>
-                                <td class="px-6 py-4">
-                                    $2999
-                                </td>
-                                <td class="px-6 py-4 text-right">
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Force Post</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b bg-white">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-black">
-                                    Microsoft Surface Pro
-                                </th>
-                                <td class="px-6 py-4">
-                                    White
-                                </td>
-                                <td class="px-6 py-4">
-                                    Laptop PC
-                                </td>
-                                <td class="px-6 py-4">
-                                    $1999
-                                </td>
-                                <td class="px-6 py-4 text-right">
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Force Post</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-white bg-white">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-black">
-                                    Magic Mouse 2
-                                </th>
-                                <td class="px-6 py-4">
-                                    Black
-                                </td>
-                                <td class="px-6 py-4">
-                                    Accessories
-                                </td>
-                                <td class="px-6 py-4">
-                                    $99
-                                </td>
-                                <td class="px-6 py-4 text-right">
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Force Post</a>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
