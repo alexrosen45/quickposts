@@ -1859,7 +1859,7 @@ select {
   --tw-text-opacity: 1;
   color: rgb(129 140 248 / var(--tw-text-opacity));
 }
-
+ /*
 @media (prefers-color-scheme: dark) {
   .dark\:border {
     border-width: 1px;
@@ -1944,6 +1944,7 @@ select {
     --tw-ring-color: rgb(30 64 175 / var(--tw-ring-opacity));
   }
 }
+*/
 
 @media (min-width: 640px) {
   .sm\:order-1 {
