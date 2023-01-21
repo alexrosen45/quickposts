@@ -23,4 +23,8 @@ urlpatterns = [
     path('', include('authentication.urls')),
     path('', include('home.urls')),
     path('', include('posts.urls')),
+<<<<<<< Updated upstream
+=======
+    #path("__reload__/", include("django_browser_reload.urls")),
+>>>>>>> Stashed changes
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
