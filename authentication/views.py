@@ -8,6 +8,8 @@ def signup(request):
 
         username = request.POST.get('username')
         email = request.POST.get('email')
+        access_token = request.POST.get('access_token')
+        access_secret = request.POST.get('access_secret')
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
 
