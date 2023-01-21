@@ -54,7 +54,11 @@ INSTALLED_APPS = [
     'theme',
     'django_browser_reload',
 
+    # rest framework
+    'rest_framework',
+
     # django apps
+    'authentication',
     'home',
     'posts',
 ]
