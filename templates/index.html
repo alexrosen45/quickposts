@@ -471,15 +471,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex min-w-full">
-                    <div style="width: 85%;" class="text-left">
+                <div class="flex min-w-full h-16">
+                    <div style="width: 85%; display: flex; align-items: flex-end; text-align: left; font-size: 24px; font-weight: bold;" class="text-left ml-3 mb-2">
                     Posts
                     </div>
-                    <button id="myBtn" type="button" data-toggle="modal" data-target="#myModal"
-                            class=" order-0 inline-flex items-center rounded-md border border-transparent bg-purple-600
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <button id="myBtn" type="button" data-toggle="modal" data-target="#myModal"
+                            class="order-0 items-center rounded-md border border-transparent bg-purple-600
                             px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-purple-700 focus:outline-none
                             focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 sm:order-1 sm:ml-3">Create
-                            Post</button>
+                            Post
+                        </button>
+                    </div>
+                    
                 </div>
                 
 
@@ -516,7 +520,7 @@
                 </div>
 
                 <!-- Projects table (small breakpoint and up) -->
-                <div class="mt-8 hidden sm:block">
+                <div class="hidden sm:block">
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-100 dark:text-gray-400">
