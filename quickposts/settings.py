@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # django apps
+    'authentication',
     'home',
     'posts',
 ]
