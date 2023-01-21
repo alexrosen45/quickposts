@@ -74,7 +74,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCON`F = 'quickposts.urls'
+ROOT_URLCON = 'quickposts.urls'
 
 TEMPLATES = [
     {
