@@ -36,3 +36,4 @@ tqdm==4.64.1
 tzdata==2022.7
 urllib3==1.26.14
 yarl==1.8.2
+tweepy==4.12.1
