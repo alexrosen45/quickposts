@@ -26,6 +26,10 @@ COHERE_API_TOKEN = env('COHERE_API_TOKEN')
 TWITTER_API_KEY = env('TWITTER_API_KEY')
 TWITTER_API_KEY_SECRET = env('TWITTER_API_KEY_SECRET')
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.quickposts.ca/'
+]
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
