@@ -6,10 +6,10 @@ from django.contrib.auth.models import User
 def signup(request):
     if request.method == "POST":
 
-        username = request.POST['username']
-        email = request.POST['email']
-        password = request.POST['password']
-        confirm_password = request.POST['confirm_password']
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
 
         # check for unique username
         if User.objects.filter(username=username):
@@ -27,8 +27,7 @@ def signup(request):
 
         # create user object from form data
         user = User.objects.create_user(username, email, password)
-        user.is_active = False  # deactivate account to be activated in confirmation email
-
+        print(user.username)
         user.save()
 
         # redirect after signup
@@ -42,10 +41,10 @@ def signin(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
+        print(username)
+
         # create user object from form data
         user = authenticate(username=username, password=password)
-
-        print(username)
 
         if user is not None:
             login(request, user)
