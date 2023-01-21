@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from .models import Profile
 
 
 def signup(request):
@@ -27,10 +28,17 @@ def signup(request):
                 'error': "Email is already in use"
             })
 
-        # create user object from form data
+        # create User object from form data
         user = User.objects.create_user(username, email, password)
-        print(user.username)
         user.save()
+
+        # create user Profile from form data
+        profile = Profile.objects.create(
+            ACCESS_TOKEN=access_token,
+            ACCESS_SECRET=access_secret,
+            user=user
+        )
+        profile.save()
 
         # redirect after signup
         return render(request, "index.html")
