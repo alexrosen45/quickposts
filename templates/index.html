@@ -444,7 +444,23 @@
                             <!-- Modal content -->
                             <div class="modal-content">
                                 <span class="close">&times;</span>
-                                <p>Some text in the Modal..</p>
+                                <div>
+                                    <form class="create_post_form" action="{% url 'create_post' %}" method="POST">
+                                        {% csrf_token %}
+                                        <div class="group-input">
+                                            <label for="id_prompt">Tell us what your post is about:</label>
+                                            <input class="details-modal-input" type="text" name="prompt" value=""
+                                                maxlength="256" required id="id_prompt">
+                                        </div>
+                                        <div class="row g-1">
+                                            <div class="col-md-12"></div>
+                                        </div>
+                                        <br>
+                                        <div class="button-24">
+                                            <button type="submit" value="create_post">Generate</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
 
                         </div>
