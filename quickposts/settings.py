@@ -15,7 +15,7 @@ import os
 import environ
 
 env = environ.Env(
-    DEBUG=(bool, False)
+    DEBUG=(bool, True)
 )
 # read .env file
 environ.Env.read_env()
@@ -23,6 +23,8 @@ environ.Env.read_env()
 OPENAI_API_KEY = env('OPENAI_API_KEY')
 REPLICATE_API_TOKEN = env('REPLICATE_API_TOKEN')
 COHERE_API_TOKEN = env('COHERE_API_TOKEN')
+TWITTER_API_KEY = env('TWITTER_API_KEY')
+TWITTER_API_KEY_SECRET = env('TWITTER_API_KEY_SECRET')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
