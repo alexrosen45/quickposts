@@ -589,11 +589,23 @@
                         </thead>
                         <tbody>
                             {% for post in data %}
-                                <tr>
-                                    <td>{{post.}}</td>
-                                    <td>{{post.sta_data}}</td>
-                                    <td>{{post.sto_data}}</td>
-                                </tr>
+                                <tr class="bg-white border-b bg-white ">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-black">
+                                    {{post.data}}
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{post.datetime}}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{post.status}}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{post.details}}
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Force Post</a>
+                                </td>
+                            </tr>
                             {% endfor %}
                             <tr class="bg-white border-b bg-white ">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-black">
