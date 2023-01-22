@@ -610,10 +610,17 @@
                                 </div>
                                 <div style="width: 35%; display: flex; justify-content: center; align-items: center;" class="px-6 py-4">
                                     <div>
-                                    <span style="background-color: #fdf0cb; color: #935301" class="inline-flex items-center justify-center text-black text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-500">
-                                        <span style="background-color: #935301" class="w-2 h-2 mr-1 rounded-full"></span>
-                                        {{post.status}}
-                                    </span>
+                                    {% if post.status == "Pending" %}
+                                        <span style="background-color: #fdf0cb; color: #935301" class="inline-flex items-center justify-center text-black text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-500">
+                                            <span style="background-color: #935301" class="w-2 h-2 mr-1 rounded-full"></span>
+                                            {{post.status}}
+                                        </span>
+                                    {% else %}
+                                        <span style="background-color: #e9f6ce; color: #487306" class="inline-flex items-center justify-center text-black text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-500">
+                                            <span style="background-color: #487306" class="w-2 h-2 mr-1 rounded-full"></span>
+                                            {{post.status}}
+                                        </span>
+                                    {% endif %}
                                     </div>
                                 </div>
                                 <div style="width: 35%; display: flex; justify-content: center; align-items: center;" class="px-6 py-4">
