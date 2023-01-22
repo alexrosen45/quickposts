@@ -15,6 +15,6 @@ def home(request):
             "prompt": "Test",
             "datetime": "friday",
             "details": "Testinfo",
-            "status": "Pending"
+            "status": "Accepted"
         }]
     })
