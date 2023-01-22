@@ -3,16 +3,39 @@ from django.conf import settings
 import openai
 import json
 from django.core.files import File
+from django.contrib.auth.models import User
 import os
 import urllib
 import replicate
 import cohere
+from cohere.classify import Example
+import re
 
 REPLICATE_API_TOKEN = settings.REPLICATE_API_TOKEN
-COHERE_API_TOKEN = settings.COHERE_API_TOKEN
+
+examples = [
+    Example("you are hot trash", "Toxic"),
+    Example("go to hell", "Toxic"),
+    Example("get rekt moron", "Toxic"),
+    Example("get a brain and use it", "Toxic"),
+    Example("say what you mean, you jerk.", "Toxic"),
+    Example("Are you really this stupid", "Toxic"),
+    Example("I will honestly kill you", "Toxic"),
+    Example("yo how are you", "Benign"),
+    Example("I'm curious, how did that happen", "Benign"),
+    Example("Try that again", "Benign"),
+    Example("Hello everyone, excited to be here", "Benign"),
+    Example("I think I saw it first", "Benign"),
+    Example("That is an interesting point", "Benign"),
+    Example("I love this", "Benign"),
+    Example("We should try that sometime", "Benign"),
+    Example("You should go for it", "Benign")
+]
 
 
 class Post(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, default=None, related_name='user_post')
     prompt = models.CharField(max_length=120)
     response = models.TextField()
     image = models.ImageField(upload_to='images', null=True)
@@ -22,13 +45,7 @@ class Post(models.Model):
     # post_at = models.DateTimeField(blank=True, null=True)
     # generated_at = models.DateTimeField(blank=True, auto_now_add=True)
 
-    def get_response(self):
-        openai.organization = "org-l5VLx4gFMCKCSsQLK0KavLsu"
-        openai.api_key = settings.OPENAI_API_KEY
-
-        # create prompt
-        prompt = f"Write a Twitter post caption about: {self.prompt}."
-
+    def request_response(self, prompt):
         response = openai.Completion.create(
             engine="text-davinci-003",
             prompt=prompt,
@@ -36,6 +53,31 @@ class Post(models.Model):
         )
 
         self.response = json.loads(str(response))['choices'][0]['text']
+
+    def get_response(self):
+        openai.organization = "org-l5VLx4gFMCKCSsQLK0KavLsu"
+        openai.api_key = settings.OPENAI_API_KEY
+
+        # create prompt
+        prompt = f"Write a Twitter post caption about: {self.prompt}."
+
+        self.request_response(prompt)
+        while self.get_benign_confidence() <= 0.85:
+            self.request_response(prompt)
+
+    def get_benign_confidence(self):
+        # cohere toxicity check
+        co = cohere.Client(settings.COHERE_API_TOKEN)
+
+        toxicity_response = co.classify(
+            model='large',
+            inputs=[self.response],
+            examples=examples
+        )
+
+        match = re.search("confidence: (.*),",
+                          str(toxicity_response.classifications))
+        return float(match.group(1).split(',')[0])
 
     def get_image(self):
         # set replicate api token as environment variable
@@ -71,7 +113,7 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         if not self.pk:
             self.get_response()
-            self.get_image()
+            # self.get_image()
         super(Post, self).save(*args, **kwargs)
 
     def __str__(self):
