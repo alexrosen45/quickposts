@@ -8,3 +8,7 @@ def home(request):
     return render(request, 'index.html', context={
         'data': Post.objects.filter(user=request.user)
     })
+
+
+def landing(request):
+    return render(request, 'landing.html', context={})
