@@ -43,6 +43,7 @@
             background-color: white;
             display: none;
             overflow: hidden;
+            height: 25vh;
         }
 
         body {
@@ -557,9 +558,9 @@
 
                 <!-- Projects table (small breakpoint and up) -->
                 <div class="hidden sm:block">
-                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                        <div class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                            <div class="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-100 dark:text-gray-400">
+                    <div class="relative shadow-md sm:rounded-lg">
+                        <div class="w-full text-sm text-left">
+                            <div class="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-100">
                                 <div class="flex">
                                     <div style="width: 35%;" scope="col" class="px-6 py-3">
                                         Prompt
@@ -658,17 +659,13 @@
                                             class="forces text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-1  focus:outline-none">Force
                                             Post</button>
                                     </div>
-
                                 </div>
-                                <div loopNumber="{{ forloop.counter }}" id="p{{ forloop.counter }}"
-                                    class="panel bg-white border-b">
-                                    <div>Lorem ipsum...</div>
-                                </div>
-
                             </div>
-                            <div loopNumber="{{ forloop.counter }}" id="p{{ forloop.counter }}"
-                                class="panel bg-white border-b">
-                                <div>Lorem ipsum...</div>
+                            <div loopNumber="{{ forloop.counter }}" id="p{{ forloop.counter }}" style="display: none;" class="panel bg-white border-b">
+                                <div style="display: flex; justify-content: center; align-items: center;">
+                                    <img src="{{post.image_url}}" width="175px" style="height: 175px !important;" />
+                                </div>
+                                <div style="margin-left: 20px; margin-top: 20px; font-size: 20px; line-height: 1.5;">{{post.response}}</div>
                             </div>
 
                             {% endfor %}
@@ -750,10 +747,10 @@
                 /* Toggle between hiding and showing the active panel */
                 var panel = document.getElementById("p" + this.id);
                 console.log(panel)
-                if (panel.style.display === "block") {
+                if (panel.style.display === "flex") {
                     panel.style.display = "none";
                 } else {
-                    panel.style.display = "block";
+                    panel.style.display = "flex";
                 }
             });
         }
