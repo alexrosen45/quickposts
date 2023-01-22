@@ -520,8 +520,8 @@
                     <div style="display: flex; justify-content: center; align-items: center;">
                         <button id="myBtn" type="button" data-toggle="modal" data-target="#myModal" class="order-0 items-center rounded-md border border-transparent bg-purple-600
                             px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-purple-700 focus:outline-none
-                            focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 sm:order-1 sm:ml-3">Create
-                            Post
+                            focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 sm:order-1 sm:ml-3">
+                            Create Post
                         </button>
                     </div>
                 </div>   
@@ -650,12 +650,15 @@
     <script>
         // Get the modal
         var modal = document.getElementById("myModal");
+        console.log(modal)
 
         // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
+        console.log(btn)
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
+
 
         // When the user clicks the button, open the modal 
         btn.onclick = function () {
@@ -667,40 +670,22 @@
             modal.style.display = "none";
         }
 
-        // When the user clicks anywhere outside of the modal, close it
-
-        // // Get the modal
-        // var modal2 = document.getElementById("popup-modal");
-
-        // // Get the button that opens the modal
-        // var btn2 = document.getElementById("force-post");
-
-        // // Get the <span> element that closes the modal
-        // var span2 = document.getElementsByClassName("close")[0];
-
-        // // When the user clicks the button, open the modal 
-        // btn2.onclick = function () {
-        //     modal2.style.display = "block";
-        // }
-
-        // // When the user clicks on <span> (x), close the modal
-        // span2.onclick = function () {
-        //     modal2.style.display = "none";
-        // }
-
         var forces = document.getElementsByClassName("forces");
-        var force_post_clicked = null
         var modals = []
         for (let index = 1; index <= forces.length; index++) {
-            var modal = document.getElementById("popup-modal" + index)
-            modals.push(modal)
+            var popup_modal = document.getElementById("popup-modal" + index)
+            modals.push(popup_modal)
         }
+
 
         window.onclick = function (event) {
             for (var i =0; i<modals.length;i++) {
                 if (event.target ==  modals[i]){
                     modals[i].style.display = "none"
                 }
+            }
+            if (event.target == modal) {
+                modal.style.display = "none";
             }
         }
 
