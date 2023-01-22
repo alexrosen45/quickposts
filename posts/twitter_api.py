@@ -23,9 +23,10 @@ def create_tweet(
         consumer_key=TWITTER_API_KEY,
         consumer_secret=TWITTER_API_SECRET
     )
-    auth.set_access_token(key=TWITTER_ACCESS_TOKEN,
-                          secret=TWITTER_ACCESS_TOKEN_SECRET
-                          )
+    auth.set_access_token(
+        key=TWITTER_ACCESS_TOKEN,
+        secret=TWITTER_ACCESS_TOKEN_SECRET
+    )
     api = tweepy.API(auth)
 
     # Uploading medias
