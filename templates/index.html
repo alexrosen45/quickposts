@@ -598,13 +598,12 @@
                                 <div class="relative bg-white rounded-lg">
                                     <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-hide="popup-modal">
                                         <span class="sr-only">Close modal</span>
-                                        
                                     </button>
                                     <div class="p-6 text-center">
                                         <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                         <h3 class="mb-5 text-lg font-normal text-gray-500">Are you sure you want to post now?</h3>
                                         <button data-modal-hide="popup-modal" type="button" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                                            Yes, I'm sure
+                                            Yes, I'm sure {{ forloop.counter }}
                                         </button>
                                         <button data-modal-hide="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No, cancel</button>
                                     </div>
@@ -708,12 +707,13 @@
 
         for (var i = 0; i < forces.length; i++) {
 
-            var modal = document.getElementById("popup-modal" + (i + 1));
-            var btn = document.getElementById("force-post" + (i + 1));
 
             forces[i].addEventListener("click", function(e) {
                 /* Toggle between adding and removing the "active" class,
                 to highlight the button that controls the panel */
+                var loopNumber = this.getAttribute("loopNumber")
+                var modal = document.getElementById("popup-modal" + loopNumber);
+                var btn = document.getElementById("force-post" + loopNumber);
 
                 modal.style.display = "block";
 
@@ -729,8 +729,6 @@
             /* Toggle between adding and removing the "active" class,
             to highlight the button that controls the panel */
             this.classList.toggle("active");
-            console.log(this.id)
-
 
             /* Toggle between hiding and showing the active panel */
             var panel = document.getElementById("p" + this.id);
