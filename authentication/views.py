@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from .models import Profile
 
 
 def signup(request):
@@ -8,8 +10,10 @@ def signup(request):
 
         username = request.POST.get('username')
         email = request.POST.get('email')
+        access_token = request.POST.get('access_token')
+        access_secret = request.POST.get('access_secret')
         password = request.POST.get('password')
-        confirm_password = request.POST.get('confirm_password')
+        # confirm_password = request.POST.get('confirm_password')
 
         # check for unique username
         if User.objects.filter(username=username):
@@ -25,10 +29,17 @@ def signup(request):
                 'error': "Email is already in use"
             })
 
-        # create user object from form data
+        # create User object from form data
         user = User.objects.create_user(username, email, password)
-        print(user.username)
         user.save()
+
+        # create user Profile from form data
+        profile = Profile.objects.create(
+            ACCESS_TOKEN=access_token,
+            ACCESS_SECRET=access_secret,
+            user=user
+        )
+        profile.save()
 
         # redirect after signup
         return render(request, "index.html")
@@ -58,3 +69,9 @@ def signin(request):
             })
 
     return render(request, "authentication/signin.html")
+
+
+@login_required(login_url="/signin")
+def signout(request):
+    logout(request)
+    return redirect('home')

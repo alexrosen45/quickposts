@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>QuickPosts - Social Media, Automated</title>
-    <link rel="icon" href="https://quickposts.ca/static/images/logo.png" sizes="32x32">
+    <link rel="icon" href="https://quickposts.ca/static/images/logo-rounded.png" sizes="32x32">
     {% load static %}
     <script>
         function myFunction() {
@@ -80,7 +80,7 @@
             border-radius: 10px;
         }
 
-        .modal-title{
+        .modal-title {
             font-size: 24px;
             padding-bottom: 12px;
             font-weight: 600;
@@ -155,8 +155,7 @@
                     </div>
 
                     <div class="flex flex-shrink-0 items-center px-4">
-                        <img class="h-8 w-auto" src="https://quickposts.ca/static/images/logo.png"
-                        alt="QuickPosts">
+                        <img class="h-8 w-auto" src="https://quickposts.ca/static/images/logo.png" alt="QuickPosts">
                     </div>
                     <div class="mt-5 h-0 flex-1 overflow-y-auto">
                         <nav class="px-2">
@@ -428,7 +427,7 @@
                                 </button>
                             </div>
 
-                                <!--
+                            <!--
                                 Dropdown menu, show/hide based on menu state.
 
                                 Entering: "transition ease-out duration-100"
@@ -473,27 +472,35 @@
                         <h1 class="text-lg font-medium leading-6 text-gray-900 sm:truncate">Home</h1>
                     </div>
                     <div class="mt-4 flex sm:mt-0 sm:ml-4">
-                        <button type="button"
-                            class="sm:order-0 order-1 ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 sm:ml-0">Share</button>
+                        <a href="{% url 'signout' %}">
+                            <div type="button"
+                                class="sm:order-0 order-1 ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 sm:ml-0">
+                                Sign
+                                Out</div>
+                        </a>
 
                         <!-- The Modal -->
                         <div id="myModal" class="modal">
                             <!-- Modal content -->
                             <div class="modal-content">
                                 <form class="create_post_form" action="{% url 'create_post' %}" method="POST">
-                                {% csrf_token %}
-                                <span class="close">&times;</span>
-                                <div >
-                                    <div class="modal-title">Create Post</div>
-                                    <label style="margin-left: 10%;" for="prompt" class="block text-sm font-medium text-gray-700">Prompt</label>
-                                    <div class="mt-1 flex justify-center pb-4">
-                                        <input style="width: 80%;" type="text" name="prompt" id="prompt" class="block rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Ex. ice cream shop">
-                                    </div>
-                                    <div class="mt-1 flex justify-center">
-                                        <button type="submit" value="create_post" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Generate</button>
-                                    </div>
+                                    {% csrf_token %}
+                                    <span class="close">&times;</span>
+                                    <div>
+                                        <div class="modal-title">Create Post</div>
+                                        <label style="margin-left: 10%;" for="prompt"
+                                            class="block text-sm font-medium text-gray-700">Prompt</label>
+                                        <div class="mt-1 flex justify-center pb-4">
+                                            <input style="width: 80%;" type="text" name="prompt" id="prompt"
+                                                class="block rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                placeholder="Ex. ice cream shop">
+                                        </div>
+                                        <div class="mt-1 flex justify-center">
+                                            <button type="submit" value="create_post"
+                                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Generate</button>
+                                        </div>
 
-                                </div>
+                                    </div>
                                 </form>
 
                             </div>
@@ -502,12 +509,12 @@
                     </div>
                 </div>
                 <div class="flex min-w-full h-16">
-                    <div style="width: 85%; display: flex; align-items: flex-end; text-align: left; font-size: 24px; font-weight: bold;" class="text-left ml-3 mb-2">
-                    Posts
+                    <div style="width: 85%; display: flex; align-items: flex-end; text-align: left; font-size: 24px; font-weight: bold;"
+                        class="text-left ml-3 mb-2">
+                        Posts
                     </div>
                     <div style="display: flex; justify-content: center; align-items: center;">
-                        <button id="myBtn" type="button" data-toggle="modal" data-target="#myModal"
-                            class="order-0 items-center rounded-md border border-transparent bg-purple-600
+                        <button id="myBtn" type="button" data-toggle="modal" data-target="#myModal" class="order-0 items-center rounded-md border border-transparent bg-purple-600
                             px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-purple-700 focus:outline-none
                             focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 sm:order-1 sm:ml-3">Create
                             Post
