@@ -22,6 +22,8 @@
             color: #444;
             cursor: pointer;
             padding: 5px;
+            padding-top: 3px;
+            padding-bottom: 3px;
             width: 100%;
             text-align: left;
             border: none;
@@ -43,6 +45,7 @@
             background-color: white;
             display: none;
             overflow: hidden;
+            height: 25vh;
         }
 
         body {
@@ -263,18 +266,10 @@
                                     <img class="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
                                         src="https://quickposts.ca/static/images/profilepicture.png" alt="">
                                     <span class="flex min-w-0 flex-1 flex-col">
-                                        <span class="truncate text-sm font-medium text-gray-900">Jessy Schwarz</span>
-                                        <span class="truncate text-sm text-gray-500">@jessyschwarz</span>
+                                        <span class="truncate text-sm font-medium text-gray-900">{{ username }}</span>
+                                        <span class="truncate text-sm text-gray-500">{{ email }}</span>
                                     </span>
                                 </span>
-                                <!-- Heroicon name: mini/chevron-up-down -->
-                                <svg class="h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                    aria-hidden="true">
-                                    <path fill-rule="evenodd"
-                                        d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
-                                        clip-rule="evenodd" />
-                                </svg>
                             </span>
                         </button>
                     </div>
@@ -557,9 +552,9 @@
 
                 <!-- Projects table (small breakpoint and up) -->
                 <div class="hidden sm:block">
-                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                        <div class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                            <div class="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-100 dark:text-gray-400">
+                    <div class="relative shadow-md sm:rounded-lg">
+                        <div class="w-full text-sm text-left">
+                            <div class="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-100">
                                 <div class="flex">
                                     <div style="width: 35%;" scope="col" class="px-6 py-3">
                                         Prompt
@@ -611,6 +606,7 @@
                                                 </svg>
                                                 <h3 class="mb-5 text-lg font-normal text-gray-500">Are you sure you want
                                                     to post now?</h3>
+                                                <div class="flex justify-center">
                                                 <form action="{% url 'tweet_post' %}" method="POST">
                                                     {% csrf_token %}
                                                     <button data-modal-hide="popup-modal" type="submit" name="post_id"
@@ -622,6 +618,7 @@
                                                 <button data-modal-hide="popup-modal" type="button"
                                                     class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No,
                                                     cancel</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -634,12 +631,28 @@
                                     <div style="width: 35%; display: flex; justify-content: center; align-items: center;"
                                         class="px-6 py-4">
                                         <div>
-                                            <span style="background-color: #fdf0cb; color: #935301"
-                                                class="inline-flex items-center justify-center text-black text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-500">
-                                                <span style="background-color: #935301"
-                                                    class="w-2 h-2 mr-1 rounded-full"></span>
-                                                {{post.status}}
-                                            </span>
+                                            {% if post.status == "pending" %}
+                                                <span style="background-color: #fdf0cb; color: #935301"
+                                                    class="inline-flex items-center justify-center text-black text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-500">
+                                                    <span style="background-color: #935301"
+                                                        class="w-2 h-2 mr-1 rounded-full"></span>
+                                                    {{post.status}}
+                                                </span>
+                                            {% elif post.status == "succeeded" %}
+                                                <span style="background-color: #e9f6ce; color: #385b08"
+                                                    class="inline-flex items-center justify-center text-black text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-500">
+                                                    <span style="background-color: #385b08"
+                                                        class="w-2 h-2 mr-1 rounded-full"></span>
+                                                    {{post.status}}
+                                                </span>
+                                            {% else %}
+                                                <span style="background-color: #ffecee; color: #db8389"
+                                                    class="inline-flex items-center justify-center text-black text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-500">
+                                                    <span style="background-color: #db8389"
+                                                        class="w-2 h-2 mr-1 rounded-full"></span>
+                                                    {{post.status}}
+                                                </span>
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <div style="width: 35%; display: flex; justify-content: center; align-items: center;"
@@ -647,28 +660,24 @@
                                         <div style="background-color: #fdf0cb; color: #935301; display: flex; justify-content: center; align-items: center;"
                                             class="flex items-center justify-center text-black text-xs font-medium rounded-full dark:bg-yellow-500">
                                             <button id="{{ forloop.counter }}" type="submit" value="create_post"
-                                                style="background-color: #d9f5fd; border: 1px solid #2576c1; color: #2576c1; width: 100px; text-align: center;"
+                                                style="background-color: #092540; border: 1px solid #092540; color: #fff; width: 100px; text-align: center;"
                                                 class=" accordion text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 focus:outline-none">Details</button>
                                         </div>
                                     </div>
-                                    <div style="width: 35%;" class="px-6 py-4 ">
+                                    <div style=" width: 35%;" class="flex items-center justify-center px-6 py-4 ">
                                         <button loopNumber="{{forloop.counter}}" id="force-post{{forloop.counter}}"
                                             type="submit" value="create_post"
-                                            style="background-color: #d9f5fd; border: 1px solid #2576c1; color: #2576c1;"
-                                            class="forces text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-1  focus:outline-none">Force
-                                            Post</button>
+                                            style="background-color: #092540; border: 1px solid #092540; color: #fff;"
+                                            class="forces text-white hover:bg-gray-300 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-1 focus:outline-none">
+                                            Force Post</button>
                                     </div>
-
                                 </div>
-                                <div loopNumber="{{ forloop.counter }}" id="p{{ forloop.counter }}"
-                                    class="panel bg-white border-b">
-                                    <div>Lorem ipsum...</div>
-                                </div>
-
                             </div>
-                            <div loopNumber="{{ forloop.counter }}" id="p{{ forloop.counter }}"
-                                class="panel bg-white border-b">
-                                <div>Lorem ipsum...</div>
+                            <div loopNumber="{{ forloop.counter }}" id="p{{ forloop.counter }}" style="display: none;" class="panel bg-white border-b">
+                                <div style="display: flex; justify-content: center; align-items: center;">
+                                    <img src="{{post.image_url}}" width="175px" style="height: 175px !important;" />
+                                </div>
+                                <div style="margin-left: 20px; margin-top: 20px; font-size: 20px; line-height: 1.5;">{{post.response}}</div>
                             </div>
 
                             {% endfor %}
@@ -750,10 +759,10 @@
                 /* Toggle between hiding and showing the active panel */
                 var panel = document.getElementById("p" + this.id);
                 console.log(panel)
-                if (panel.style.display === "block") {
+                if (panel.style.display === "flex") {
                     panel.style.display = "none";
                 } else {
-                    panel.style.display = "block";
+                    panel.style.display = "flex";
                 }
             });
         }
