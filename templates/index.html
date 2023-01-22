@@ -385,7 +385,7 @@
                                                 Try Again
                                             </button>
                                         {% else %}
-                                            <div></div>
+                                            <button loopNumber="{{forloop.counter}}" id="force-post{{forloop.counter}}" class="forces"></button>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -434,7 +434,8 @@
             var popup_modal = document.getElementById("popup-modal" + index)
             let cancel_button = document.getElementById('popup-modal-button' + index)
             cancel_button.onclick = () => {
-                popup_modal.style.display = "none";
+                console.log(modals)
+                modals[index-1].style.display = "none"
             }
             modals.push(popup_modal)
         }
