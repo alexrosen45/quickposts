@@ -252,7 +252,7 @@
                 
 
                 <!-- Projects table (small breakpoint and up) -->
-                <div class="hidden sm:block shadow-md">
+                <div class="sm:block shadow-md">
                     <div class="relative sm:rounded-lg">
                         <div class="w-full text-sm text-left">
                             <div class="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-100">
@@ -325,13 +325,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="flex bg-white border-b">
+                                <div class="sm:flex bg-white border-b sm:flex-col">
                                     <div style="width: 35%; display: flex;  align-items: center;"
                                         class="px-6 py-4 font-medium text-gray-900 text-black">
                                         {{post.prompt}}
                                     </div>
                                     <div style="width: 35%; display: flex; justify-content: center; align-items: center;"
-                                        class="px-6 py-4">
+                                        class=" px-6 py-4">
                                         <div>
                                             {% if post.status == "pending" %}
                                                 <span style="background-color: #fdf0cb; color: #935301"
@@ -393,7 +393,7 @@
                                     <div style="display: flex; justify-content: center; align-items: center;">
                                         <img src="{{post.image_url}}" width="175px" style="height: 175px !important;" />
                                     </div>
-                                    <div style="margin-left: 20px; margin-top: 20px; font-size: 20px; line-height: 1.5;">{{post.response}}</div>
+                                    <div class="text-sm" style="margin-left: 20px; margin-top: 20px; ">{{post.response}}</div>
                                 </div>
                             </div>
 
