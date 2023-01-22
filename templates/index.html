@@ -236,15 +236,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex min-w-full h-16">
-                    <div style="width: 85%; display: flex; align-items: flex-end; text-align: left; font-size: 24px; font-weight: bold;"
-                        class="text-left ml-3 mb-2">
+                <div style="" class="flex h-16">
+                    <div style="margin-left: 2.5vw; width: 85%; display: flex; align-items: flex-end; text-align: left; font-size: 24px; font-weight: bold;"
+                        class="text-left mb-2">
                         Posts
                     </div>
                     <div style="display: flex; justify-content: center; align-items: center;">
-                        <button id="myBtn" type="button" data-toggle="modal" data-target="#myModal" class="order-0 items-center rounded-md border border-transparent bg-purple-600
-                            px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-purple-700 focus:outline-none
-                            focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 sm:order-1 sm:ml-3">
+                        <button id="myBtn" type="button" data-toggle="modal" data-target="#myModal" style="margin-left: 20px;" class="order-0 items-center rounded-md border border-transparent bg-blue-600
+                            px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none 
+                            focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:order-1">
                             Create Post
                         </button>
                     </div>
@@ -385,7 +385,7 @@
                                                 Try Again
                                             </button>
                                         {% else %}
-                                            <div></div>
+                                            <button loopNumber="{{forloop.counter}}" id="force-post{{forloop.counter}}" class="forces"></button>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -434,7 +434,8 @@
             var popup_modal = document.getElementById("popup-modal" + index)
             let cancel_button = document.getElementById('popup-modal-button' + index)
             cancel_button.onclick = () => {
-                popup_modal.style.display = "none";
+                console.log(modals)
+                modals[index-1].style.display = "none"
             }
             modals.push(popup_modal)
         }
