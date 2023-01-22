@@ -113,7 +113,7 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         if not self.pk:
             self.get_response()
-            # self.get_image()
+            self.get_image()
         super(Post, self).save(*args, **kwargs)
 
     def __str__(self):

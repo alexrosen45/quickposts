@@ -52,8 +52,6 @@ def signin(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        print(username)
-
         # create user object from form data
         user = authenticate(username=username, password=password)
 
