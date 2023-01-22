@@ -29,21 +29,20 @@
             transition: 0.4s;
         }
 
-        .forces{
-
-        }
+        .forces {}
 
         /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-        .active, .accordion:hover {
-        background-color: #ccc;
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
         }
 
         /* Style the accordion panel. Note: hidden by default */
         .panel {
-        padding: 0 18px;
-        background-color: white;
-        display: none;
-        overflow: hidden;
+            padding: 0 18px;
+            background-color: white;
+            display: none;
+            overflow: hidden;
         }
 
         body {
@@ -246,7 +245,7 @@
             class="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col lg:border-r lg:border-gray-200 lg:bg-gray-100 lg:pt-5 lg:pb-4">
             <div class="flex lg:py-0 justify-center items-center px-6">
                 <img class="mr-2 h-8 w-auto rounded-lg" src="https://quickposts.ca/static/images/logo.png"
-                alt="QuickPosts">
+                    alt="QuickPosts">
                 <span class="flex items-center mt-2 mb-2 text-2xl font-semibold text-gray-600">
                     QuickPosts
                 </span>
@@ -497,7 +496,7 @@
                                         <div class="mt-1 flex justify-center pb-4">
                                             <input style="width: 80%;" type="text" name="prompt" id="prompt"
                                                 class="block rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                                placeholder="Ex. ice cream shop">
+                                                placeholder="Write a post about...">
                                         </div>
                                         <div class="mt-1 flex justify-center">
                                             <button type="submit" value="create_post"
@@ -524,7 +523,7 @@
                             Create Post
                         </button>
                     </div>
-                </div>   
+                </div>
                 <!-- Projects list (only on smallest breakpoint) -->
                 <div class="mt-10 sm:hidden">
                     <div class="px-4 sm:px-6">
@@ -560,31 +559,137 @@
                 <!-- Projects table (small breakpoint and up) -->
                 <div class="hidden sm:block">
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+<<<<<<< HEAD
+                        <div class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                            <div class="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-100 dark:text-gray-400">
+                                <div class="flex">
+                                    <div style="width: 20%;" scope="col" class="px-6 py-3">
+                                        Prompt
+                                    </div>
+                                    <div style="width: 20%;" scope="col" class="px-6 py-3">
+                                        <div class="flex justify-center">
+                                            Datetime
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1"
+                                                    aria-hidden="true" fill="currentColor" viewBox="0 0 320 512">
+                                                    <path
+                                                        d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z" />
+                                                </svg></a>
+                                        </div>
+                                    </div>
+                                    <div style="width: 20%;" scope="col" class="px-6 py-3">
+                                        <div class="flex justify-center">
+                                            Status
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1"
+                                                    aria-hidden="true" fill="currentColor" viewBox="0 0 320 512">
+                                                    <path
+                                                        d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z" />
+                                                </svg></a>
+                                        </div>
+                                    </div>
+                                    <div style="width: 20%;" scope="col" class="px-6 py-3">
+                                        <div class="flex justify-center">
+                                            Details
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1"
+                                                    aria-hidden="true" fill="currentColor" viewBox="0 0 320 512">
+                                                    <path
+                                                        d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z" />
+                                                </svg></a>
+                                        </div>
+                                    </div>
+                                    <div style="width: 20%;" scope="col" class="px-6 py-3">
+                                        <span class="sr-only">Force Post</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                {% for post in data %}
+                                <div id="popup-modal{{ forloop.counter }}" class="modal">
+                                    <!-- Modal content -->
+                                    <div class="modal-content">
+                                        <span id="close{{forloop.counter}}" class="close">&times;</span>
+                                        <div class="relative bg-white rounded-lg">
+                                            <button type="button"
+                                                class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                                                data-modal-hide="popup-modal">
+                                                <span class="sr-only">Close modal</span>
+                                            </button>
+                                            <div class="p-6 text-center">
+                                                <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14"
+                                                    fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                </svg>
+                                                <h3 class="mb-5 text-lg font-normal text-gray-500">Are you sure you want
+                                                    to post now?</h3>
+                                                <button data-modal-hide="popup-modal" type="button"
+                                                    class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                                                    Yes, I'm sure {{ forloop.counter }}
+                                                </button>
+                                                <button data-modal-hide="popup-modal" type="button"
+                                                    class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No,
+                                                    cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex bg-white border-b">
+                                    <div style="width: 20%; display: flex;  align-items: center;"
+                                        class="px-6 py-4 font-medium text-gray-900 text-black">
+                                        {{post.prompt}}
+                                    </div>
+                                    <div style="display: flex; width: 20%; text-align: center; justify-content: center; align-items: center;"
+                                        class="px-6 py-4">
+                                        {{post.datetime}}
+                                    </div>
+                                    <div style="width: 20%; display: flex; justify-content: center; align-items: center;"
+                                        class="px-6 py-4">
+                                        <div>
+                                            <span style="background-color: #fdf0cb; color: #935301"
+                                                class="inline-flex items-center justify-center text-black text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-500">
+                                                <span style="background-color: #935301"
+                                                    class="w-2 h-2 mr-1 rounded-full"></span>
+                                                {{post.status}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div style="width: 20%; display: flex; justify-content: center; align-items: center;"
+                                        class="px-6 py-4">
+                                        <div style="background-color: #fdf0cb; color: #935301; display: flex; justify-content: center; align-items: center;"
+                                            class="flex items-center justify-center text-black text-xs font-medium rounded-full dark:bg-yellow-500">
+                                            <button id="{{ forloop.counter }}" type="submit" value="create_post"
+                                                style="background-color: #d9f5fd; border: 1px solid #2576c1; color: #2576c1; width: 100px; text-align: center;"
+                                                class=" accordion text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 focus:outline-none">Details</button>
+                                        </div>
+                                    </div>
+                                    <div style="width: 20%;" class="px-6 py-4 ">
+                                        <button loopNumber="{{forloop.counter}}" id="force-post{{forloop.counter}}"
+                                            type="submit" value="create_post"
+                                            style="background-color: #d9f5fd; border: 1px solid #2576c1; color: #2576c1;"
+                                            class="forces text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-1  focus:outline-none">Force
+                                            Post</button>
+                                    </div>
+=======
                     <div class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <div class="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-100 dark:text-gray-400">
                             <div class="flex">
-                                <div style="width: 20%;" scope="col" class="px-6 py-3">
+                                <div style="width: 35%;" scope="col" class="px-6 py-3">
                                     Prompt
                                 </div>
-                                <div style="width: 20%;" scope="col" class="px-6 py-3">
-                                    <div class="flex justify-center">
-                                        Datetime
-                                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
-                                    </div>
-                                </div>
-                                <div style="width: 20%;" scope="col" class="px-6 py-3">
+                                <div style="width: 35%;" scope="col" class="px-6 py-3">
                                     <div class="flex justify-center">
                                         Status
                                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
                                     </div>
                                 </div>
-                                <div style="width: 20%;" scope="col" class="px-6 py-3">
+                                <div style="width: 35%;" scope="col" class="px-6 py-3">
                                     <div class="flex justify-center">
                                         Details
                                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
                                     </div>
                                 </div>
-                                <div style="width: 20%;" scope="col" class="px-6 py-3">
+                                <div style="width: 35%;" scope="col" class="px-6 py-3">
                                     <span class="sr-only">Force Post</span>
                                 </div>
                             </div>
@@ -611,13 +716,10 @@
                             </div>
                         </div>
                             <div class="flex bg-white border-b">
-                                <div style="width: 20%; display: flex;  align-items: center;" class="px-6 py-4 font-medium text-gray-900 text-black">
+                                <div style="width: 35%; display: flex;  align-items: center;" class="px-6 py-4 font-medium text-gray-900 text-black">
                                     {{post.prompt}}
                                 </div>
-                                <div style="display: flex; width: 20%; text-align: center; justify-content: center; align-items: center;" class="px-6 py-4">
-                                    {{post.datetime}}
-                                </div>
-                                <div style="width: 20%; display: flex; justify-content: center; align-items: center;" class="px-6 py-4">
+                                <div style="width: 35%; display: flex; justify-content: center; align-items: center;" class="px-6 py-4">
                                     <div>
                                     <span style="background-color: #fdf0cb; color: #935301" class="inline-flex items-center justify-center text-black text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-500">
                                         <span style="background-color: #935301" class="w-2 h-2 mr-1 rounded-full"></span>
@@ -625,12 +727,12 @@
                                     </span>
                                     </div>
                                 </div>
-                                <div style="width: 20%; display: flex; justify-content: center; align-items: center;" class="px-6 py-4">
+                                <div style="width: 35%; display: flex; justify-content: center; align-items: center;" class="px-6 py-4">
                                     <div style="background-color: #fdf0cb; color: #935301; display: flex; justify-content: center; align-items: center;" class="flex items-center justify-center text-black text-xs font-medium rounded-full dark:bg-yellow-500">
                                         <button id="{{ forloop.counter }}" type="submit" value="create_post" style="background-color: #d9f5fd; border: 1px solid #2576c1; color: #2576c1; width: 100px; text-align: center;" class=" accordion text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 focus:outline-none">Details</button>
                                     </div>
                                 </div>
-                                <div style="width: 20%;" class="px-6 py-4 ">
+                                <div style="width: 35%;" class="px-6 py-4 ">
                                     <button loopNumber="{{forloop.counter}}" id="force-post{{forloop.counter}}" type="submit" value="create_post" style="background-color: #d9f5fd; border: 1px solid #2576c1; color: #2576c1;" class="forces text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-1  focus:outline-none">Force Post</button>
                                 </div>
                                 
@@ -638,11 +740,18 @@
                             <div loopNumber="{{ forloop.counter }}" id="p{{ forloop.counter }}" class="panel bg-white border-b">
                                 <div>Lorem ipsum...</div>
                             </div>
+>>>>>>> a2059140fde919eb2ad718dc47b07eb62386a6e6
 
-                            {% endfor %}
+                                </div>
+                                <div loopNumber="{{ forloop.counter }}" id="p{{ forloop.counter }}"
+                                    class="panel bg-white border-b">
+                                    <div>Lorem ipsum...</div>
+                                </div>
+
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </main>
         </div>
@@ -679,8 +788,8 @@
 
 
         window.onclick = function (event) {
-            for (var i =0; i<modals.length;i++) {
-                if (event.target ==  modals[i]){
+            for (var i = 0; i < modals.length; i++) {
+                if (event.target == modals[i]) {
                     modals[i].style.display = "none"
                 }
             }
@@ -693,7 +802,7 @@
         for (var i = 0; i < forces.length; i++) {
 
 
-            forces[i].addEventListener("click", function(e) {
+            forces[i].addEventListener("click", function (e) {
                 /* Toggle between adding and removing the "active" class,
                 to highlight the button that controls the panel */
                 var loopNumber = this.getAttribute("loopNumber")
@@ -710,20 +819,20 @@
         var acc = document.getElementsByClassName("accordion");
 
         for (var i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function(e) {
-            /* Toggle between adding and removing the "active" class,
-            to highlight the button that controls the panel */
-            this.classList.toggle("active");
+            acc[i].addEventListener("click", function (e) {
+                /* Toggle between adding and removing the "active" class,
+                to highlight the button that controls the panel */
+                this.classList.toggle("active");
 
-            /* Toggle between hiding and showing the active panel */
-            var panel = document.getElementById("p" + this.id);
-            console.log(panel)
-            if (panel.style.display === "block") {
-            panel.style.display = "none";
-            } else {
-            panel.style.display = "block";
-            }
-        });
+                /* Toggle between hiding and showing the active panel */
+                var panel = document.getElementById("p" + this.id);
+                console.log(panel)
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
         }
     </script>
 </body>
