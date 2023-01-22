@@ -6,6 +6,8 @@ from posts.models import Post
 @login_required(login_url="/signin")
 def home(request):
     return render(request, 'index.html', context={
+        'username': request.user.username,
+        'email': request.user.email,
         'data': Post.objects.filter(user=request.user)
     })
 
