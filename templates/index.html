@@ -267,7 +267,8 @@
                                                     aria-hidden="true" fill="currentColor" viewBox="0 0 320 512">
                                                     <path
                                                         d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z" />
-                                                </svg></a>
+                                                </svg>
+                                            </a>
                                         </div>
                                     </div>
                                     <div style="width: 35%;" scope="col" class="px-6 py-3">
@@ -277,7 +278,8 @@
                                                     aria-hidden="true" fill="currentColor" viewBox="0 0 320 512">
                                                     <path
                                                         d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z" />
-                                                </svg></a>
+                                                </svg>
+                                            </a>
                                         </div>
                                     </div>
                                     <div style="width: 35%;" scope="col" class="px-6 py-3">
@@ -290,7 +292,8 @@
                                 <div id="popup-modal{{ forloop.counter }}" class="modal">
                                     <!-- Modal content -->
                                     <div class="modal-content">
-                                        <span id="close{{forloop.counter}}" class="close">&times;</span>
+                                        <span id="close{{forloop.counter}}" class="close">&times;
+                                        </span>
                                         <div class="relative bg-white rounded-lg">
                                             <button type="button"
                                                 class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
@@ -309,17 +312,18 @@
                                                     to post now?
                                                 </h3>
                                                 <div class="flex justify-center">
-                                                <form action="{% url 'tweet_post' %}" method="POST">
-                                                    {% csrf_token %}
-                                                    <button data-modal-hide="popup-modal" type="submit" name="post_id"
-                                                        value="{{post.id}}"
-                                                        class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                                                        Yes, I'm sure
-                                                    </button>
-                                                </form>
-                                                <button id="popup-modal-button{{forloop.counter}}" data-modal-hide="popup-modal" type="button"
+                                                    <form action="{% url 'tweet_post' %}" method="POST">
+                                                        {% csrf_token %}
+                                                        <button data-modal-hide="popup-modal" type="submit" name="post_id"
+                                                            value="{{post.id}}"
+                                                            class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                                                            Yes, I'm sure
+                                                        </button>
+                                                    </form>
+                                                    <button id="popup-modal-button{{forloop.counter}}" data-modal-hide="popup-modal" type="button"
                                                     class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No,
-                                                    cancel</button>
+                                                    cancel
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -395,9 +399,8 @@
                                     </div>
                                     <div style="margin-left: 20px; margin-top: 20px; font-size: 20px; line-height: 1.5;">{{post.response}}</div>
                                 </div>
+                                {% endfor %}
                             </div>
-
-                            {% endfor %}
                         </div>
                     </div>
                 </div>
