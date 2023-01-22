@@ -18,3 +18,6 @@ def home(request):
             "status": "Accepted"
         }]
     })
+
+def landing(request):
+    return render(request, 'landing.html', context={})
