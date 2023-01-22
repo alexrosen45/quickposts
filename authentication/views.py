@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Profile
 
@@ -12,7 +13,7 @@ def signup(request):
         access_token = request.POST.get('access_token')
         access_secret = request.POST.get('access_secret')
         password = request.POST.get('password')
-        confirm_password = request.POST.get('confirm_password')
+        # confirm_password = request.POST.get('confirm_password')
 
         # check for unique username
         if User.objects.filter(username=username):
@@ -68,3 +69,9 @@ def signin(request):
             })
 
     return render(request, "authentication/signin.html")
+
+
+@login_required(login_url="/signin")
+def signout(request):
+    logout(request)
+    return redirect('home')
