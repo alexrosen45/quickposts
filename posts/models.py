@@ -40,7 +40,7 @@ class Post(models.Model):
     response = models.TextField()
     image = models.ImageField(upload_to='images', null=True)
     image_url = models.URLField(null=True)
-    # status = models.TextField(default='pending')
+    status = models.TextField(default='pending')
     # completed = models.BooleanField(default=False)
     # post_at = models.DateTimeField(blank=True, null=True)
     # generated_at = models.DateTimeField(blank=True, auto_now_add=True)
