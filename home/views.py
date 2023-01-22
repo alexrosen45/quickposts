@@ -10,5 +10,11 @@ def home(request):
             "datetime": "friday",
             "details": "Testinfo",
             "status": "Pending"
+        }, 
+        {
+            "prompt": "Test",
+            "datetime": "friday",
+            "details": "Testinfo",
+            "status": "Pending"
         }]
     })
