@@ -197,7 +197,7 @@
                 <div
                     class="border-b border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
                     <div class="min-w-0 flex-1">
-                        <h1 class="text-lg font-medium leading-6 text-gray-900 sm:truncate">Home</h1>
+                        <h1 class="text-lg font-medium leading-6 text-gray-900 sm:truncate">Welcome, {{ username }} </h1>
                     </div>
                     <div class="mt-4 flex sm:mt-0 sm:ml-4">
                         <a href="{% url 'signout' %}">
@@ -313,10 +313,10 @@
                                                     <button data-modal-hide="popup-modal" type="submit" name="post_id"
                                                         value="{{post.id}}"
                                                         class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                                                        Yes, I'm sure {{ forloop.counter }}
+                                                        Yes, I'm sure
                                                     </button>
                                                 </form>
-                                                <button data-modal-hide="popup-modal" type="button"
+                                                <button id="popup-modal-button{{forloop.counter}}" data-modal-hide="popup-modal" type="button"
                                                     class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">No,
                                                     cancel</button>
                                                 </div>
@@ -428,6 +428,10 @@
         var modals = []
         for (let index = 1; index <= forces.length; index++) {
             var popup_modal = document.getElementById("popup-modal" + index)
+            let cancel_button = document.getElementById('popup-modal-button' + index)
+            cancel_button.onclick = () => {
+                popup_modal.style.display = "none";
+            }
             modals.push(popup_modal)
         }
 
