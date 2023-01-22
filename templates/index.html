@@ -252,8 +252,8 @@
                 
 
                 <!-- Projects table (small breakpoint and up) -->
-                <div>
-                    <div class="relative shadow-md sm:rounded-lg">
+                <div class="hidden sm:block shadow-md">
+                    <div class="relative sm:rounded-lg">
                         <div class="w-full text-sm text-left">
                             <div class="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-100">
                                 <div class="flex">
@@ -306,7 +306,8 @@
                                                         d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                                 </svg>
                                                 <h3 class="mb-5 text-lg font-normal text-gray-500">Are you sure you want
-                                                    to post now?</h3>
+                                                    to post now?
+                                                </h3>
                                                 <div class="flex justify-center">
                                                 <form action="{% url 'tweet_post' %}" method="POST">
                                                     {% csrf_token %}
@@ -336,33 +337,36 @@
                                                 <span style="background-color: #fdf0cb; color: #935301"
                                                     class="inline-flex items-center justify-center text-black text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-500">
                                                     <span style="background-color: #935301"
-                                                        class="w-2 h-2 mr-1 rounded-full"></span>
+                                                        class="w-2 h-2 mr-1 rounded-full">
+                                                    </span>
                                                     {{post.status}}
                                                 </span>
                                             {% elif post.status == "succeeded" %}
                                                 <span style="background-color: #e9f6ce; color: #385b08"
                                                     class="inline-flex items-center justify-center text-black text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-500">
                                                     <span style="background-color: #385b08"
-                                                        class="w-2 h-2 mr-1 rounded-full"></span>
+                                                        class="w-2 h-2 mr-1 rounded-full">
+                                                    </span>
                                                     {{post.status}}
                                                 </span>
                                             {% else %}
                                                 <span style="background-color: #ffecee; color: #db8389"
                                                     class="inline-flex items-center justify-center text-black text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-500">
                                                     <span style="background-color: #db8389"
-                                                        class="w-2 h-2 mr-1 rounded-full"></span>
+                                                        class="w-2 h-2 mr-1 rounded-full">
+                                                    </span>
                                                     {{post.status}}
                                                 </span>
                                             {% endif %}
                                         </div>
                                     </div>
-                                    <div style="width: 35%; display: flex; justify-content: center; align-items: center;"
-                                        class="px-6 py-4">
+                                    <div style="width: 35%; display: flex; justify-content: center; align-items: center;" class="px-6 py-4">
                                         <div style="background-color: #fdf0cb; color: #935301; display: flex; justify-content: center; align-items: center;"
                                             class="flex items-center justify-center text-black text-xs font-medium rounded-full dark:bg-yellow-500">
                                             <button id="{{ forloop.counter }}" type="submit" value="create_post"
                                                 style="background-color: #092540; border: 1px solid #092540; color: #fff; width: 100px; text-align: center;"
-                                                class=" accordion text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 focus:outline-none">Details</button>
+                                                class=" accordion text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 focus:outline-none">Details
+                                            </button>
                                         </div>
                                     </div>
                                     <div style=" width: 35%;" class="flex items-center justify-center px-6 py-4 ">
@@ -385,12 +389,12 @@
                                         {% endif %}
                                     </div>
                                 </div>
-                            </div>
-                            <div loopNumber="{{ forloop.counter }}" id="p{{ forloop.counter }}" style="display: none;" class="panel bg-white border-b">
-                                <div style="display: flex; justify-content: center; align-items: center;">
-                                    <img src="{{post.image_url}}" width="175px" style="height: 175px !important;" />
+                                <div loopNumber="{{ forloop.counter }}" id="p{{ forloop.counter }}" style="display: none;" class="panel bg-white border-b">
+                                    <div style="display: flex; justify-content: center; align-items: center;">
+                                        <img src="{{post.image_url}}" width="175px" style="height: 175px !important;" />
+                                    </div>
+                                    <div style="margin-left: 20px; margin-top: 20px; font-size: 20px; line-height: 1.5;">{{post.response}}</div>
                                 </div>
-                                <div style="margin-left: 20px; margin-top: 20px; font-size: 20px; line-height: 1.5;">{{post.response}}</div>
                             </div>
 
                             {% endfor %}
