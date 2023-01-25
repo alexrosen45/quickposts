@@ -64,8 +64,10 @@ def tweet_post(request):
                 access_token=profile.ACCESS_TOKEN,
                 access_token_secret=profile.ACCESS_SECRET
             )
+            print("Client generated.")
 
             if post.image_url == "":
+                print("Posting without image.")
                 response = client.create_tweet(text=post.response)
                 print(response)
             else:
@@ -81,23 +83,26 @@ def tweet_post(request):
                 api = tweepy.API(auth)
                 filename = 'temp.png'
                 request = requests.get(post.image_url, stream=True)
+                print("API connection established.")
 
                 if request.status_code == 200:
                     with open(filename, 'wb') as image:
                         for chunk in request:
                             image.write(chunk)
+                    print("Image downloaded successfully.")
 
                     media = api.media_upload(filename=filename)
                     response = client.create_tweet(
                         text=post.response, media_ids=[media.media_id])
                     os.remove(filename)
+                    print("Tweeted.")
                 else:
                     print("Unable to download image")
 
             post.status = "succeeded"
 
         except:
-            print("An error occurred while trying to post you tweet.")
+            print("An error occurred while trying to post your tweet.")
             post.status = "failed"
 
         post.save()
