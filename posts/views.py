@@ -54,47 +54,6 @@ def tweet_post(request):
         post_id = request.POST['post_id']
         post = Post.objects.get(id=post_id)
 
-        profile = Profile.objects.get(user=user)
-
-        # create tweet
-        client = tweepy.Client(
-            consumer_key=settings.TWITTER_API_KEY,
-            consumer_secret=settings.TWITTER_API_KEY_SECRET,
-            access_token=profile.ACCESS_TOKEN,
-            access_token_secret=profile.ACCESS_SECRET
-        )
-
-        if post.image_url == "":
-            response = client.create_tweet(text=post.response)
-            print(response)
-        else:
-            auth = tweepy.OAuthHandler(
-                consumer_key=settings.TWITTER_API_KEY,
-                consumer_secret=settings.TWITTER_API_KEY_SECRET
-            )
-            auth.set_access_token(
-                key=profile.ACCESS_TOKEN,
-                secret=profile.ACCESS_SECRET
-            )
-
-            api = tweepy.API(auth)
-            filename = 'temp.png'
-            request = requests.get(post.image_url, stream=True)
-
-            if request.status_code == 200:
-                with open(filename, 'wb') as image:
-                    for chunk in request:
-                        image.write(chunk)
-
-                media = api.media_upload(filename=filename)
-                response = client.create_tweet(
-                    text=post.response, media_ids=[media.media_id])
-                os.remove(filename)
-            else:
-                print("Unable to download image")
-
-        post.status = "succeeded"
-
         try:
             profile = Profile.objects.get(user=user)
 
