@@ -1,4 +1,4 @@
-# quickposts
+# quickposts.ca
 
 Automated caption and image generation for your company's Twitter posts.
 
@@ -12,6 +12,8 @@ To install the repo in a local environment, clone it, move to the project direct
 Note that you will need to set up a `.env` environment variable file in the main directory. Specify `OPENAI_API_KEY`, `REPLICATE_API_TOKEN`, `COHERE_API_TOKEN`, `TWITTER_API_KEY`, and `TWITTER_API_KEY` in this file. 
 
 Note that there are two branches of this github repository: development and production. Production is the branch running the code for the [Quickposts](https://quickposts.ca/) website.
+
+
 
 See below for instructions on how to setup Stable Diffusion locally. 
 
